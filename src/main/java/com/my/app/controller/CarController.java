@@ -1,0 +1,12 @@
+package com.my.app.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class CarController {
+	@GetMapping("/car/step1")
+	public String car_test1() {
+		return "/jsp-test/step1";
+	}
+}

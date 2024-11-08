@@ -25,6 +25,16 @@
 		UPDATE admin SET a_approval = 1
 			WHERE a_id = #{id}
 	</update>
+	
+	<select id="pagingList" resultType="adminDTO" 
+						parameterType="java.util.Map">
+		SELECT a_id, a_pw, a_name, a_phone, a_approval
+		FROM admin limit #{limit} offset #{start}
+	</select>
+	
+	<select id="boardCount" resultType="Integer">
+		SELECT count(a_id) FROM admin
+	</select>
 </mapper>
 
 

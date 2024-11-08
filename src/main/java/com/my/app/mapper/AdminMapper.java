@@ -1,6 +1,7 @@
 package com.my.app.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,5 +18,9 @@ public interface AdminMapper {
 	List<AdminDTO> adminList();
 
 	void updateApproval(String id);
+
+	List<AdminDTO> pagingList(Map<String, Integer> pagingParams);
+
+	int boardCount();
 
 }

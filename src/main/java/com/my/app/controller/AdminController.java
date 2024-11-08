@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.my.app.dto.AdminDTO;
+import com.my.app.dto.PageDTO;
 import com.my.app.service.AdminService;
+
+import sun.management.jmxremote.ConnectorBootstrap.DefaultValues;
 
 @Controller
 @RequestMapping("/admin")
@@ -80,10 +84,30 @@ public class AdminController {
 		model.addAttribute("list", list);
 		return "/admin/admin-list";
 	}
+	
+	
 	@GetMapping("setAdminApproval")
 	public String setAdminApproval(@RequestParam("id")String id) {
 		adminService.updateApproval(id);
 		return "redirect:/admin/adminList";
+	}
+	
+	@GetMapping("createAccountData")
+	public String createAccountData() {
+		adminService.createAccountData();
+		return "redirect:/admin/adminList";
+	}
+	
+	@GetMapping("pagingList")
+	public String pagingList(Model model,
+			@RequestParam(value="page", required=false,defaultValue="1")
+					int page) {
+		List<AdminDTO> list = adminService.pagingList(page);
+		model.addAttribute("list", list);
+		
+		PageDTO pageDTO = adminService.getPagingInfo(page);
+		model.addAttribute("paging", pageDTO);
+		return "/admin/admin-list";
 	}
 }
 

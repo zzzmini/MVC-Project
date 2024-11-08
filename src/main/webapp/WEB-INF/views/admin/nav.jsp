@@ -23,6 +23,7 @@
 			<li><a href='<c:url value="/admin/adminList"></c:url>'>
 					관리자목록</a></li>
 		</c:if>
+		<li><a href='<c:url value="/admin/pagingList" />'>페이징보기</a></li>
 		<li><a href="#">전체도서</a></li>
 		<li><a href="#">도서등록</a></li>
 	</ul>

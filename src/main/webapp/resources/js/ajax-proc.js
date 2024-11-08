@@ -1,10 +1,13 @@
 $(document).ready(function() {
+	
+	const contextPath = sessionStorage.getItem("contextpath");
+	
 	$(document).on("click", "input:radio[name='result']", function(){
 		let id = $(this).attr('id');
 		
 		let data = {"id" : id};
 		$.ajax({
-			url : "/searchAdmin",
+			url : `${contextPath}/searchAdmin`,
 			type : "post",
 			data : JSON.stringify(data),
 			dataType : "json",
@@ -23,7 +26,7 @@ $(document).ready(function() {
 	
 	$("#search").on("click", function() {
 		$.ajax({
-			url : "/searchData",
+			url : `${contextPath}/searchData`,
 			type : "post",
 			contentType : "application/json",
 			success : function(data){
@@ -60,7 +63,7 @@ $(document).ready(function() {
 			"age" : "30"
 		};
 		$.ajax({
-			url : "/goTest",
+			url : `${contextPath}/goTest`,
 			type : "post",
 			data : JSON.stringify(data),
 			dataType : "json",

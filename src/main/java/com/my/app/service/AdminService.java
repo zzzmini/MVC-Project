@@ -90,6 +90,15 @@ public class AdminService {
 		return pageDTO;
 	}
 
+	public List<AdminDTO> searchAdmin(String keyword) {
+		
+		return adminMapper.searchAdmin(keyword); 
+	}
+
+	public List<AdminDTO> searchData() {
+		return adminMapper.searchData();
+	}
+
 }
 
 

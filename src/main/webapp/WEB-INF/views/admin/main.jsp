@@ -12,6 +12,8 @@
 		<li><a href="<c:url value='/admin/loginForm' />">로그인</a></li>
 		<li><a href="<c:url value='/admin/createAccountForm' />">회원가입</a></li>
 		<li><a href="<c:url value='/admin/createAccountData' />">생성하기</a></li>
+		<li><a href="<c:url value='/admin/ajaxTest'/>">
+							Ajax Test</a></li>
 	</ul>
 </body>
 </html>

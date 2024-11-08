@@ -23,4 +23,8 @@ public interface AdminMapper {
 
 	int boardCount();
 
+	List<AdminDTO> searchAdmin(String id);
+
+	List<AdminDTO> searchData();
+
 }

@@ -35,6 +35,15 @@
 	<select id="boardCount" resultType="Integer">
 		SELECT count(a_id) FROM admin
 	</select>
+	
+		<select id="searchAdmin" parameterType="adminDTO" resultType="adminDTO">
+		SELECT a_id, a_pw, a_name, a_phone, a_approval FROM admin
+		WHERE a_id = #{id}
+	</select>
+	<select id="searchData" resultType="adminDTO">
+		SELECT a_id, a_pw, a_name, a_phone, a_approval
+		FROM admin limit 10
+	</select>
 </mapper>
 
 

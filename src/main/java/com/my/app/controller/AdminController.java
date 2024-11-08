@@ -31,6 +31,11 @@ public class AdminController {
 		this.passwordEncoder = passwordEncoder;
 	}
 	
+	@GetMapping("ajaxTest")
+	public String ajaxTest() {
+		return "/admin/ajax_test";
+	}
+	
 	@GetMapping("")
 	public String mainView() {
 		return "/admin/main";

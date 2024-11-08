@@ -1,4 +1,26 @@
 $(document).ready(function() {
+	$(document).on("click", "input:radio[name='result']", function(){
+		let id = $(this).attr('id');
+		
+		let data = {"id" : id};
+		$.ajax({
+			url : "/searchAdmin",
+			type : "post",
+			data : JSON.stringify(data),
+			dataType : "json",
+			contentType : "application/json",
+			success : function(result){
+				let strContent = "<td>" + result[0].a_name + "</td>" +
+				"<td>" + result[0].a_phone + "</td>"
+				$("#content").html(strContent);
+			},
+			error : function(error){
+				alert(error.status.Text);
+			}
+		})
+	})
+	
+	
 	$("#search").on("click", function() {
 		$.ajax({
 			url : "/searchData",

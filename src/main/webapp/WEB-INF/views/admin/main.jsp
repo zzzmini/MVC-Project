@@ -16,4 +16,7 @@
 							Ajax Test</a></li>
 	</ul>
 </body>
+<script type="text/javascript" charset="utf-8">
+sessionStorage.setItem("contextpath", "${pageContext.request.contextPath}");
+</script>
 </html>

@@ -34,4 +34,12 @@ public class AjaxController {
 		List<AdminDTO> adminDtos = adminService.searchData();
 		return adminDtos;
 	}
+	@PostMapping("/searchAdmin")
+	@ResponseBody
+	public List<AdminDTO> searchAdmin(@RequestBody
+			Map<String, String> body){
+		String id = body.get("id");
+		List<AdminDTO> adminDtos = adminService.searchAdmin(id);
+		return adminDtos;
+	}
 }
